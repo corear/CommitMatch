@@ -1,13 +1,18 @@
-<center><img src="https://commitmatch-corear.c9users.io/commitmatch/app/assets/images/FullLogo256.png"></center>
+<center><img src="https://raw.githubusercontent.com/corear/CommitMatch/master/app/assets/images/FullLogo256.png"></center>
 <div style="position: absolute; left:35%; width:30%; top: 20%;">
   <div style="padding:30px; background:none; border:1px solid #ccc; border-radius:15px;">
   <center><h2>Sign up</h2></center>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
+  
+<div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username, autofocus: true, :class => "fld" %>
+  </div>
+  
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.email_field :email, autofocus: true, :class => "fld" %>
+    <%= f.email_field :email, :class => "fld" %>
   </div>
 
   <div class="field">

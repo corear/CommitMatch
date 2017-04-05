@@ -1,4 +1,5 @@
-<img src="/app/assets/images/FullLogo256.png" class="imgcenter" alt="CommitMatch" style="width:256px;height:256px;">
-
-<h1>Pages#index</h1>
-Find me in app/views/pages/index.html.erb
+<% if !user_signed_in? %>
+<script>window.location="/landing"</script>
+<% else %>
+     <%= render '/layouts/nav_user' %>
+<% end %>

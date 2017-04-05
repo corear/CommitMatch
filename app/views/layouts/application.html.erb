@@ -1,3 +1,14 @@
+<script>
+if window.location != "/landing" {
+<% if !user_signed_in? %>
+<script>window.location="/landing"</script>
+<% else %>
+     <%= render '/layouts/nav_user' %>
+<% end %>
+}
+</script>
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -68,6 +79,10 @@
     cursor: pointer;
   }
   
+  .temp1:hover{
+    background-color:#ff1a1a;
+  }
+  
 </style>
 
 
@@ -77,9 +92,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
-  <span class="notice"><%= notice %></span>
-       <span class="alert"><%= alert %></span>
+  <span class="notice" style="text-align:center;position:fixed;height:50px;top:0px;left:0px;width:100%;color:#000" ><%= notice %></span>
+       <span class="alert" style="line-height:50px;font-size:20px;text-align:center;position:fixed;height:50px;top:0px;left:0px;width:100%;color:#000"><%= alert %></span>
 
 <%= yield %>
 
