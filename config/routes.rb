@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'sign_in', to: 'devise/sessions#new'
   get 'sign_up', to: 'devise/registrations#new'
   get 'passwords/new', to: 'devise/passwords#new'
+  get 'edit_profile', to: 'devise/registrations#edit'
 end
   # Define routes for navigating to pages
   root 'pages#index'

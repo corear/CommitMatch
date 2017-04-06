@@ -1,2 +1,6 @@
-<h1>Pages#explore</h1>
-<p>Find me in app/views/pages/explore.html.erb</p>
+<% if !user_signed_in? %>
+<script>window.location="/landing"</script>
+<% else %>
+     <%= render '/layouts/nav_user' %>
+<% end %>
+<script>document.title="Explore | CommitMatch"</script>

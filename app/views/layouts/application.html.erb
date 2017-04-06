@@ -83,13 +83,29 @@ if window.location != "/landing" {
     background-color:#ff1a1a;
   }
   
+  .menuLi{
+    text-decoration:none;
+    margin-left:35px;
+    height:100%;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size:20px;
+    color:#fff;
+    padding:10px;
+    border-radius:15px;
+    padding-left:20px;
+    padding-right:20px;
+  }
+  
+  .menuLi:hover{
+    background-color:#ff1a1a;
+  }
+  
 </style>
 
-
-  <title>CommitMatch | Dating with a purpose.</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="shortcut icon" href="/app/assets/images/favicon.ico" type="image/x-icon" /> 
 </head>
 <body>
   <span class="notice" style="text-align:center;position:fixed;height:50px;top:0px;left:0px;width:100%;color:#000" ><%= notice %></span>
