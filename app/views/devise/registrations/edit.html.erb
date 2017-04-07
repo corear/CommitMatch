@@ -1,50 +1,89 @@
 <% if !user_signed_in? %>
 <script>window.location="/landing"</script>
 <% else %>
-     <%= render '/layouts/nav_user' %>
-<% end %>
 <script>document.title="Edit Profile | CommitMatch"</script>
 
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<center><img src="https://raw.githubusercontent.com/corear/CommitMatch/master/app/assets/images/FullLogo256.png"></center>
+<div style="position: absolute; left:35%; width:30%; top: 256px; margin:20px;">
+  <div style="padding:30px; background:none; border:1px solid #ccc; border-radius:15px;">
+  <center><h2>Edit your profile</h2></center>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  
+<div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username, autofocus: true, :class => "fld" %>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
+  
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    First Name<br>
+    <%= f.text_field :firstName, :class => "fld" %>
+  </div>
+  
+  <div class="field">
+    Last Name<br>
+    <%= f.text_field :lastName, :class => "fld" %>
+  </div>
+  <br>
+  Your Gender: <b style="color:#ff4d4d"><%= current_user.gender %></b><br><br>
+  
+   <div class="field">
+    <%= f.label :email %><br>
+    <%= f.email_field :email, :class => "fld" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :password %>
     <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+    <em>(<%= @minimum_password_length %> characters minimum, <b>leave blank if you do not wish to change it.</b>)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off", :class => "fld" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "fld" %>
   </div>
-
+  
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+    <%= f.label :denomination %><br>
+    <%= f.text_field :denomination, :class => "fld" %>
+  </div>
+  
+  <div class="field">
+    City & State<br>
+    <%= f.text_field :city, :class => "fld", :style => "width:49%;" %> , 
+    <%= f.text_field :state, :class => "fld", :style => "width:42px; position:relative", :maxlength => "2" %>  &nbsp;&nbsp;(Your state's abbreviation)
+  </div>
+  
+  <div class="field">
+    <%= f.label :interests, :style => "top:0px; position:relative" %><br>
+    <%= f.text_field :interests, :class => "fld", :style => "top:0px; position:relative" %>
+  </div>
+  <br><br>
+  <div class="field">
+    <center><b><%= f.label :current_password, :style => "top:20px; position:relative" %></center><br /></b>
+    <%= f.password_field :current_password, autocomplete: "off", :class => "fld", :style => "background-color:#00e68a; color:#fff; top:20px; position:relative" %>
   </div>
 
+  
+<center>
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "UPDATE", :class => "actButton", :style => "top:20px; position:relative" %>
   </div>
 <% end %>
-
+<br>
+        <div class="divider" style="position:relative; top:20px;"></div><br>
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy with our services? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => "basicButton" %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back, :class => "basicButton" %><br><br>
+<br><br><%= link_to "Log Out", destroy_user_session_path, :method => :delete, :class => "actButton" %></center></div>
+<div style="width:100%; height:30px"></div>
+</div>
+
+
+
+     <%= render '/layouts/nav_user' %>
+<% end %>

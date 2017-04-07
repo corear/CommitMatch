@@ -1,5 +1,6 @@
+<script>document.title="Sign Up | CommitMatch"</script>
 <center><img src="https://raw.githubusercontent.com/corear/CommitMatch/master/app/assets/images/FullLogo256.png"></center>
-<div style="position: absolute; left:35%; width:30%; top: 20%;">
+<div style="position: absolute; left:35%; width:30%; top: 256px;">
   <div style="padding:30px; background:none; border:1px solid #ccc; border-radius:15px;">
   <center><h2>Sign up</h2></center>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -7,14 +8,29 @@
   
 <div class="field">
     <%= f.label :username %><br>
-    <%= f.text_field :username, autofocus: true, :class => "fld" %>
+    <%= f.text_field :username, autofocus: true, :class => "fld", :maxlength => "20" %>
   </div>
   
   <div class="field">
+    First Name<br>
+    <%= f.text_field :firstName, :class => "fld" %>
+  </div>
+  
+  <div class="field">
+    Last Name<br>
+    <%= f.text_field :lastName, :class => "fld" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.select :gender, options_for_select([['Male', 'Male'], ['Female', 'Female']]), { :include_blank => false }, :class => "fld", :style =>"height:30px;" %>
+  </div>
+  
+   <div class="field">
     <%= f.label :email %><br>
     <%= f.email_field :email, :class => "fld" %>
   </div>
-
+  
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
@@ -27,6 +43,25 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off", :class => "fld" %>
   </div>
+  
+  <div class="field">
+    <%= f.label :denomination %><br>
+    <%= f.text_field :denomination, :class => "fld" %>
+  </div>
+  
+  <div class="field">
+    City & State<br>
+    <%= f.text_field :city, :class => "fld", :style => "width:49%" %> , 
+    <%= f.text_field :state, :class => "fld", :maxlength => "2", :style => "position:relative; width:42px;" %> &nbsp;&nbsp;(Your state's abbreviation)
+  </div>
+  
+  <div class="field">
+    <%= f.label :interests %><br>
+    <%= f.text_field :interests, :class => "fld" %>
+  </div>
+  
+
+  
 <center>
   <div class="actions">
     <%= f.submit "SIGN UP", :class => "actButton" %>

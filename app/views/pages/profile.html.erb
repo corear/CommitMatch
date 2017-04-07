@@ -1,10 +1,23 @@
 <% if !user_signed_in? %>
 <script>window.location="/landing"</script>
 <% else %>
+
+<script>document.title="CommitMatch | @<%= @username %>" </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      <%= render '/layouts/nav_user' %>
 <% end %>
-
-<h1>Pages#profile</h1>
-<p>Find me in app/views/pages/profile.html.erb</p>
-<%= @username %>
-<script>document.title="CommitMatch | @<%= @username %>" </script>

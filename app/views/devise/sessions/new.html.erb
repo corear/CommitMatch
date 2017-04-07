@@ -4,11 +4,12 @@
 <center>
   <h2>Log in to your account</h2>
 </center>
+<script>document.title="Log In | CommitMatch"</script>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, :class => "fld" %>
+    <%= f.email_field :email, autofocus: true, :class => "fld", autocomplete: "off" %>
   </div>
 
   <div class="field">
