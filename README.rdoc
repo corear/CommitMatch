@@ -1,7 +1,7 @@
-<img src="https://raw.githubusercontent.com/corear/CommitMatch/master/app/assets/images/FullLogo512.png">
+https://raw.githubusercontent.com/corear/CommitMatch/master/app/assets/images/FullLogo256.png
 
 == CommitMatch
 
-Built with <tt>Devise</tt> authentication, the <tt>Cloud9</tt> platform, <tt style="color:#ff4d4d">Ruby</tt>, and eventually <tt>Heroku</tt>, <b>CommitMatch</b> is the pinnacle of conservative Christian dating sites.
+Built with <tt>Devise</tt> authentication, the <tt>Cloud9</tt> platform, <tt>Ruby</tt>, and eventually <tt>Heroku</tt>, <b>CommitMatch</b> is the pinnacle of conservative Christian dating sites.
 
 'Murica, baby
