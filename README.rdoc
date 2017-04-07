@@ -1,28 +1,7 @@
-== README
+<img src="https://raw.githubusercontent.com/corear/CommitMatch/master/app/assets/images/FullLogo512.png">
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== CommitMatch
 
-Things you may want to cover:
+Built with <tt>Devise</tt> authentication, the <tt>Cloud9</tt> platform, <tt style="color:#ff4d4d">Ruby</tt>, and eventually <tt>Heroku</tt>, <b>CommitMatch</b> is the pinnacle of conservative Christian dating sites.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+'Murica, baby
