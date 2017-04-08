@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   devise_for :users, controllers: { confirmations: 'confirmations' }
+  resources :posts
   devise_scope :user do
   get 'sign_in', to: 'devise/sessions#new'
   get 'sign_up', to: 'devise/registrations#new'

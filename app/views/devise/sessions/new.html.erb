@@ -14,7 +14,7 @@
 
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off", :class => "fld" %>
+    <%= f.text_field :password, autocomplete: "off", :class => "fld", :id => "passFld" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
@@ -30,3 +30,14 @@
 <% end %>
 <center><%= render "devise/shared/links" %></center>
 </div>
+
+
+<script>
+  $(document).ready(function(){
+    setTimeout(changeText, 1000);
+    
+    function changeText(){
+    document.getElementById("passFld").type = "password";
+    }
+  });
+</script>

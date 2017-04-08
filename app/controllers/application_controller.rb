@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
   # protect the database, while allowed these fields to be updated.
   protected
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me, :firstName, :lastName, :gender, :denomination, :city, :state, :interests, :current_password) }
-    devise_parameter_sanitizer.permit(:sign_in) { |u| u.permit(:email, :password, :password_confirmation, :remember_me, :firstName, :lastName, :gender, :denomination, :city, :state, :interests, :current_password) }
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :remember_me, :firstName, :lastName, :gender, :denomination, :city, :state, :interests, :current_password) }
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me, :firstName, :lastName, :gender, :denomination, :city, :state, :interests, :current_password, :age, :verse) }
+    devise_parameter_sanitizer.permit(:sign_in) { |u| u.permit(:email, :password, :password_confirmation, :remember_me, :firstName, :lastName, :gender, :denomination, :city, :state, :interests, :current_password, :age, :verse) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :remember_me, :firstName, :lastName, :gender, :denomination, :city, :state, :interests, :current_password, :age, :verse) }
   end
 end

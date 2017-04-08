@@ -32,6 +32,11 @@
   </div>
   
   <div class="field">
+    <%= f.label :age %><br>
+    <%= f.text_field :age, :class => "fld", :maxlength => "2" %>
+  </div>
+  
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -52,7 +57,7 @@
   <div class="field">
     City & State<br>
     <%= f.text_field :city, :class => "fld", :style => "width:49%" %> , 
-    <%= f.text_field :state, :class => "fld", :maxlength => "2", :style => "position:relative; width:42px;" %> &nbsp;&nbsp;(Your state's abbreviation)
+    <%= f.text_field :state, :class => "fld", :maxlength => "2", :style => "position:relative; width:45px;" %> &nbsp;&nbsp;(Your state's abbreviation)
   </div>
   
   <div class="field">

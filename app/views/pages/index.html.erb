@@ -5,61 +5,105 @@
 
 <style>
     #personal_info_div{
-        background-color:#d9d9d9;
-        width:25%;
-        left:1%;
+        background-color:#e6e6e6;
+        width:350px;
+        left:50%;
+        margin-left:-630px;
         position:absolute;
         overflow-y:auto;
-        height:83%;
-        top: 85px;
+        height:78%;
+        top: 75px;
         border-radius:20px;
         padding:30px;
         margin-bottom:20px;
     }
     
     #right_column_div{
-        background:none;
-        width:25%;
-        left:71%;
-        position:absolute;
-        height:83%;
-        top: 85px;
-    }
-    
-    #stats_div{
-        background-color:#d9d9d9;
-        width:100%;
-        left:0%;
+        background-color:#e6e6e6;
+        width:350px;
+        left:50%;
+        margin-left:280px;
         position:absolute;
         overflow-y:auto;
-        height:44%;
-        top:56%;
-        border-bottom-right-radius:20px;
-        border-bottom-left-radius:20px;
-        padding:30px;
-    }
-    
-    #notifs_div{
-        background-color:#d9d9d9;
-        width:100%;
-        left:0%;
-        position:absolute;
-        overflow-y:auto;
-        height:44%;
-        top:0px;
-        border-top-right-radius:20px;
-        border-top-left-radius:20px;
+        height:78%;
+        top: 75px;
+        border-radius:20px;
         padding:30px;
         margin-bottom:20px;
+        overflow-x:hidden;
     }
+    
+    #center_column_div{
+        background:none;
+        width:400px;
+        left:50%;
+        margin-left:-200px;
+        position:absolute;
+        height:78%;
+        top: 75px;
+        background-color:#e6e6e6;
+        border-radius:20px;
+        padding:30px;
+    }
+    
+    .post{
+        position:relative;
+        top:0px;
+        width:320px;
+        left:50%;
+        margin-left:-190px;
+        margin-bottom:20px;
+        border:1px solid #ccc;
+        font-size:18px;
+        padding:30px;
+        border-radius:15px;
+    }
+    
+    .post:hover{
+        border:1px solid #ff4d4d;
+    }
+    
+    po{
+      line-height:30px;  
+    }
+    
+    
+    
+    
 </style>
+
+<div style="width:100%;position:absolute;left:-35px;height:97%;">
+<div id="center_column_div">
+<!----------------------------------
+---------- Journal Column ----------
+----------------------------------->
+    <center><intr style="padding-left:170px; padding-right: 160px;font-size:22px; line-height: 80px; position:relative; top: -36px;left:-13px">journal</intr></center>
+    <button id="journalWhat" onclick="alert('Use this journal as a way to submit your thoughts at different stages of this journey. This journal is completely private and is only viewable to you.')" style="font-size:15px; height:32px; width: 32px; line-height:25px; text-align:center; position: relative; background:none; top:-93px; left: 373px; border-radius: 50%; border: 2px solid #fff; color: #fff">?</button>
+        <div style="position:relative;background:none; width:100%; height:83%; top:-70px; overflow-y: auto;">
+            <% for @p in @posts %>
+                <div class="post">
+                    <po><%= @p.content %></po>
+                </div>
+            <% end %>
+        </div>
+        
+        <%= form_for(@newPost) do |f| %>
+    <div style="background:none; position: absolute; width: 400px; height: 50px;top:100%; margin-top:-80px; overflow:hidden; border:1px solid #ccc; border-radius: 20px;">
+        <%= f.text_field :content, :placeholder => "Enter your thoughts... (350 Max)", :style => "width:90%; height:100%; background:none; font-size: 25px; border:none;padding:20px; font-family: 'Josefin Sans', sans-serif;" %>
+        <div class="actions">
+            <%= f.submit "" %>
+        </div>
+    </div>
+        <% end %>
+    
+</div>
 
 <!----------------------------------
 ---- Personal Information Column ---
 ----------------------------------->
 <div id="personal_info_div">
     <img src="https://www.w3schools.com/css/img_forest.jpg" style="left: 50%; margin-left: -64px; position:absolute; background-color:#fff;border-radius:50%;border:4px solid #f2f2f2; width: 128px; height: 128px;" >
-    <p style="background-color:#fff;border-radius:50%; width:60px; height: 60px;text-align:center;line-height:35px;font-size:23px;padding:10px;position:relative;top:70px;left:50%;margin-left:25px;"><b>Age</b><br>25</p>
+    <p style="background-color:#fff;border-radius:50%; width:60px; height: 60px;text-align:center;line-height:35px;font-size:23px;padding:10px;position:relative;top:70px;left:50%;margin-left:25px;"><b>Age</b><br><%= current_user.age %></p>
     <p style="background-color:#fff;border-radius:50%; width:60px; height: 60px;text-align:center;line-height:60px;font-size:18px;padding:10px;position:relative;top:-30px;left:50%;margin-left:-95px;"><%= current_user.gender %></p>
         <center><p style="text-decoration:none;font-size:25px; position:relative; top:0px;"><b>@<%= current_user.username %></b></p></center>
         <center><p style="text-decoration:none;font-size:25px; position:relative; top:0px;color:#ff4d4d"><%= current_user.firstName %></p></center>
@@ -67,9 +111,14 @@
         <div class="divider" style="position:relative; top:0px;"></div>
         <center><p style="text-decoration:none;font-size:20px; position:relative; top:0px; line-height:35px;max-width:100%;"><b style="color:#00cc7a">Your Location<br></b><loc><%= current_user.city %>, <%= current_user.state %></loc></p></center>
         <div class="divider" style="position:relative; top:0px;"></div>
-        <center><p style="text-decoration:none;font-size:20px; position:relative; top:0px; line-height:35px;max-width:100%;"><b style="color:#ff4d4d">Your Interests<br></b><intr>Soccer</intr> <intr>Bible</intr> <intr>Romance</intr> <intr>Food</intr> <intr>Water</intr> <intr>Kirk Cameron</intr> <intr>Fluffy bunnies</intr> <intr>Red Kangaroos</intr> <intr>Big Black Bears</intr></p></center>
+        <center><p style="text-decoration:none;font-size:20px; position:relative; top:0px; line-height:35px;max-width:100%;"><b style="color:#ff4d4d">Your Interests<br></b>
+        <% @arr = current_user.interests.split(', ') %>
+            <% for @inte in @arr %>
+                <intr><%= @inte %></intr>
+            <% end %>
+        </p></center>
         <div class="divider" style="position:relative; top:0px;"></div>
-        <center><p style="text-decoration:none;font-size:20px; position:relative; top:0px; line-height: 35px;"><b style="color:#ff4d4d">Your Favorite Bible Verse</b><br><em>"In the beginning was the Word, and the Word was with God, and the Word was God. - John 1:1"</em></p></center>
+        <center><p style="text-decoration:none;font-size:20px; position:relative; top:0px; line-height: 35px;"><b style="color:#ff4d4d">Your Favorite Bible Verse</b><br><em><%= current_user.verse %></em></p></center>
                 <div class="divider" style="position:relative; top:0px;"></div><br>
         <center><pt style="text-decoration:none;font-size:20px; position:relative; top:0px; line-height: 35px;"><b style="color:#ff4d4d">Your Denomination</b><br><intr style="padding-left:80px; padding-right: 80px;font-size:18px;"><%= current_user.denomination %></intr></pt></center>
         <center><button onclick="window.location='/edit_profile'" class="actButton" style = "top:20px; margin-bottom:25px; position:relative;text-align:center;">EDIT PROFILE</button></center>
@@ -79,22 +128,23 @@
 
 <div id="right_column_div">
 <!----------------------------------
---------- Statistics Column --------
+---------- Explore Column ----------
 ----------------------------------->
-<div id="stats_div">
-    <center><h1 style="color:#ff4d4d; position:relative; top: 0px;">STATISTICS</h1></center>
-</div>
-
-
+    <center><a href="/explore" style="text-decoration:none; font-size:22px; line-height: 80px; position:relative; left:-9px; top:-21px;white-space:nowrap;width:100%;text-align:center;color:#fff;background:#ff4d4d;margin-right:10px;padding:10px;line-height:50px;border-radius:10px;text-transform: uppercase;padding-left:140px; padding-right: 130px;">explore</a></center>
+    <div style="background-color:#fff;position:relative;width:100%;height:35%;">
+        
+    </div>
+    <div class="divider" style="position:relative; top:20px;"></div>
 <!----------------------------------
--------- Notifications Column ------
+-------- Statistics Column ---------
 ----------------------------------->
-<div id="notifs_div">
-    
-</div>
+    <center><a href="/explore" style="text-decoration:none; font-size:22px; line-height: 80px; position:relative; left:-9px; top: 40px; white-space:nowrap;width:100%;text-align:center;color:#fff;background:#ff4d4d;margin-right:10px;padding:10px;line-height:50px;border-radius:10px;text-transform: uppercase;padding-left:130px; padding-right: 130px;">statistics</a></center>
+    <div style="background-color:#fff;position:relative;width:100%;height:45%; top: 60px;">
+        
+    </div>
 </div>
 
-
+</div>
 
      <%= render '/layouts/nav_user' %>
 <% end %>
